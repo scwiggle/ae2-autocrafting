@@ -21,6 +21,8 @@ for i, v in pairs(autocrafts) do
 		if item_count < v.count and not me_controller.isItemCrafting({ name = v.name }) then
 			local success, err = me_controller.craftItem({ name = v.name, count = v.count - item_count })
 
+			print(v.count - item_count)
+
 			if not success then
 				print("Failed to craft " .. v.name .. ": " .. err)
 			else
