@@ -23,7 +23,7 @@ for i, v in pairs(autocrafts) do
 
 			print(v.count - item_count)
 
-			if not success then
+			if success then
 				print("Failed to craft " .. v.name .. ": " .. err)
 			else
 				print("Beginning craft for " .. v.name)
