@@ -24,9 +24,15 @@ for i, v in pairs(autocrafts) do
 			print(v.count - item_count)
 
 			if not success then
-				print("Failed to craft " .. v.name .. ": " .. err)
+				print("Failed to submit craft " .. v.name .. ": " .. err)
 			else
-				print("Beginning craft for " .. v.name)
+				local event, success, err = os.pullEvent("crafting")
+
+				if not success then
+					print("Failed to process craft " .. v.name .. ": " .. err)
+				else
+					print("Beginning craft for " .. v.name)
+				end
 			end
 		end
 	end
