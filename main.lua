@@ -11,7 +11,7 @@ local autocrafts = {
 for i, v in pairs(autocrafts) do
 	if not v.fluid then
 		local item_info = me_controller.getItem({ name = v.name })
-		if not (item_info or item_info.isCraftabile) then
+		if not (item_info or item_info.isCraftable) then
 			print("Cannot craft " .. v.name .. " because it has no pattern.")
 			goto continue
 		end
@@ -23,7 +23,7 @@ for i, v in pairs(autocrafts) do
 
 			print(v.count - item_count)
 
-			if success then
+			if not success then
 				print("Failed to craft " .. v.name .. ": " .. err)
 			else
 				print("Beginning craft for " .. v.name)
